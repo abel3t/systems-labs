@@ -1,0 +1,18 @@
+{
+	"name": "systems-labs",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"format": "bunx --bun @biomejs/biome format --write"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"hono": "^4.12.7"
+	}
+}
