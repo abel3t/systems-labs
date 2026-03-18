@@ -4,15 +4,28 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
+		"sandbox": "docker-compose up -d && concurrently --names 'backend,frontend' --prefix-colors 'blue,green' 'bun run --hot src/index.ts' 'cd frontend && bun run dev'",
+		"dev": "bun run --hot src/index.ts",
+		"migrate": "bunx drizzle-kit push --force",
 		"format": "bunx --bun @biomejs/biome format --write"
 	},
 	"devDependencies": {
-		"@types/bun": "latest"
+		"@biomejs/biome": "^2.4.7",
+		"@types/bun": "latest",
+		"@types/node": "^25.5.0",
+		"concurrently": "^9.2.1",
+		"drizzle-kit": "^0.31.10",
+		"lefthook": "^2.1.4"
 	},
 	"peerDependencies": {
-		"typescript": "^5"
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
-		"hono": "^4.12.7"
+		"@faker-js/faker": "^10.3.0",
+		"@types/pg": "^8.18.0",
+		"dotenv": "^17.3.1",
+		"drizzle-orm": "^0.45.1",
+		"hono": "^4.12.8",
+		"postgres": "^3.4.8"
 	}
 }
